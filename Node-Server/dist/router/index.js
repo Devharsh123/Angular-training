@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const productController_1 = require("../controller/productController");
+const userController_1 = require("../controller/userController");
+const authentication_1 = require("../middleware/authentication");
+const multer_1 = require("../middleware/multer");
+const user = new userController_1.UserController();
+const product = new productController_1.ProductController();
+const router = (0, express_1.Router)();
+router.post("/register", user.registration);
+router.post("/login", user.login);
+router.post("/upload", authentication_1.authorization, multer_1.upload.single("image"), product.upload);
+router.get("/get-product-image", product.getImage);
+router.post("/create", authentication_1.authorization, product.create);
+router.put("/update/:productId", authentication_1.authorization, product.update);
+router.delete("/delete/:productId", authentication_1.authorization, product.delete);
+router.get("/products", product.getProduct);
+router.post("/toggleCart/:productId", authentication_1.authorization, product.toggleCart);
+router.get("/getCartProducts", authentication_1.authorization, product.getCartProducts);
+exports.default = router;
+//# sourceMappingURL=index.js.map

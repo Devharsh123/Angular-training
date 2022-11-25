@@ -1,0 +1,28 @@
+<div class="text-center my-5"><h4><strong>HOME</strong></h4></div>
+<app-search (searchedInput)=onSearching($event)></app-search>
+<br>
+<app-sorting (sortValue)="onSorting($event)"></app-sorting>
+<br>
+ 
+<div class="row">
+  <div
+    *ngFor="let data of products"
+    class="card-group col-lg-4 col-md-6 col-sm-12"
+  >
+    <div class="card mb-5 shadow-sm">
+      <div class="card-body">
+        <img class="card-img-top" src={{data.img}}>
+        <h5 class="card-title">{{ data.pname }}</h5>
+        <p class="card-text">{{ data.description }}</p>
+        <p class="card-text">price : {{ data.price | currency:'INR'}}</p>
+        <p class="card-text">discount : {{ data.discount }} %</p>
+        <p class="card-text">tax : {{ data.tax }} %</p>
+        <p class="card-text">total amount : {{ data.totalAmount | currency:'INR' }}</p>
+        <button class="btn btn-outline-primary" (click)="toggleCart(data._id)">
+          cart
+        </button>
+      </div>
+    </div>
+  </div>
+  <app-pagination></app-pagination>
+</div>

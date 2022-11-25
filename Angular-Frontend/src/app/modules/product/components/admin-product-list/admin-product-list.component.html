@@ -1,0 +1,36 @@
+<div class="text-center my-5"><strong>PRODUCT LIST</strong></div>
+<app-search (searchedInput)=onSearching($event)></app-search>
+<br>
+<app-sorting (sortValue)="onSorting($event)"></app-sorting>
+<br>
+<div class="table-responsive-sm">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Discount</th>
+            <th scope="col">Tax</th>
+            <th scope="col">Total Amount</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+        <tbody>
+        <tr *ngFor="let data of productDetails">
+            <th scope="row">{{data._id}}</th>
+            <td>{{data.pname}}</td>
+            <td>{{data.description}}</td>
+            <td>{{data.price}}</td>
+            <td>{{data.discount}}</td>
+            <td>{{data.tax}}</td>
+            <td>{{data.totalAmount}}</td>
+            <td><button class="btn btn-primary" (click)="onUpdate(data._id)">update</button></td>
+            <td><button class="btn btn-primary" (click)="onDelete(data._id)">delete</button></td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+<app-pagination></app-pagination>

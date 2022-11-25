@@ -1,0 +1,16 @@
+
+<form [formGroup]="searchInput" (ngSubmit)="onSubmit(searchInput)">
+<div class="input-group">
+    <div class="form-outline">
+        <input type="search" id="input" class="form-control" formControlName="input" name="input"/>
+        <!-- <label class="form-label" for="form1">Search</label> -->
+        <!-- <br> -->
+        
+    </div>
+    <div class="form-outline">
+        <button type="submit" class="btn btn-primary" >
+            search
+        </button>
+    </div>
+</div>
+</form>

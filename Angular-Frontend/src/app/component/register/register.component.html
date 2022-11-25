@@ -1,0 +1,59 @@
+
+<div class="container-sm pt-4">
+    <div class="row justify-content-center h-100">
+        <div class="card my-auto shadow">
+            <div class="card-body px-5">
+                
+                <div class="text-center">
+                    <h2>Welcome</h2>
+                </div>
+                <br>
+                <!-- <div *ngIf="errorMessage">
+                    <div class="alert alert-danger" role="alert">
+                      {{errorMessage}}
+                    </div>
+                  </div> -->
+                <p style="color: lightslategray; text-align: center;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please enter your registration
+                    details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)" novalidate>
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Name" class="form-control"
+                         formControlName="name" name="name" />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email" class="form-control"
+                         formControlName="email" name="email" />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Password" class="form-control"
+                            formControlName="password" name="password" />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="date" id="dob" placeholder="Dob" class="form-control"
+                            formControlName="dob" name="dob" />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" id="address" placeholder="Address" class="form-control"
+                         formControlName="address" name="address" />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="number" id="phone" placeholder="Phone no." class="form-control"
+                         formControlName="phone" name="phone" />
+                    </div>
+                    <br>
+                    <input type="submit" class="btn btn-primary w-100" value="Register" name="">
+                </form>
+                <p>
+                    <span>Already have an account?&nbsp;</span>
+                    <a [routerLink]="['/login']">Log in!</a>
+                  </p>
+            </div>
+        </div>
+    </div>
+</div>
